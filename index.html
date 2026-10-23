@@ -1,412 +1,73 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#4f0927" />
-  <meta name="description" content="Birthday surprise untuk orang tersayang" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4f0927">
+  <meta name="description" content="Sebuah kejutan kecil untuk merayakan hari spesialmu.">
   <title>Happy Birthday, Cantikk!</title>
   <style>
-    :root {
-      --bg1: #3a031b;
-      --bg2: #5d1238;
-      --bg3: #1a0614;
-      --card: rgba(255,255,255,0.08);
-      --card-border: rgba(255,255,255,0.18);
-      --text: #fff8fb;
-      --muted: #ffd7e9;
-      --pink: #ff8ab8;
-      --rose: #ff5dad;
-      --gold: #ffd166;
-      --cream: #fff7d6;
-      --shadow: rgba(0, 0, 0, 0.32);
-    }
-
     * { box-sizing: border-box; }
 
-    html, body {
-      margin: 0;
-      min-height: 100%;
-      font-family: Arial, Helvetica, sans-serif;
-      background: radial-gradient(circle at top, #7d1236 0%, var(--bg2) 32%, var(--bg1) 55%, var(--bg3) 100%);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
     body {
+      margin: 0;
       min-height: 100vh;
       display: grid;
       place-items: center;
-      position: relative;
-    }
-
-    .bg-orb {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(16px);
-      opacity: 0.45;
-      pointer-events: none;
-      animation: float 12s ease-in-out infinite alternate;
-    }
-
-    .bg-orb.one {
-      width: 340px; height: 340px;
-      background: rgba(255,120,180,0.25);
-      top: 5%; left: 8%;
-    }
-
-    .bg-orb.two {
-      width: 420px; height: 420px;
-      background: rgba(255,210,120,0.18);
-      bottom: 6%; right: 7%;
-      animation-delay: 2s;
-    }
-
-    .bg-orb.three {
-      width: 260px; height: 260px;
-      background: rgba(255,255,255,0.10);
-      top: 35%; right: 30%;
-      animation-delay: 4s;
-    }
-
-    .sparkles, .hearts {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
+      background: radial-gradient(circle at top, #7d1236 0%, #4f0927 40%, #220711 100%);
+      color: #fff6f9;
+      font-family: Arial, sans-serif;
       overflow: hidden;
-    }
-
-    .sparkle {
-      position: absolute;
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.9);
-      box-shadow: 0 0 12px rgba(255,255,255,0.8);
-      animation: twinkle 3s ease-in-out infinite;
-    }
-
-    .heart-dot {
-      position: absolute;
-      font-size: 18px;
-      color: rgba(255, 150, 200, 0.9);
-      animation: rise 8s linear infinite;
-      opacity: 0.9;
-      text-shadow: 0 0 12px rgba(255,255,255,0.5);
-    }
-
-    .page {
-      position: relative;
-      z-index: 2;
-      width: min(920px, calc(100% - 30px));
-      display: grid;
-      place-items: center;
-      gap: 26px;
-      padding: 44px 0;
     }
 
     .card {
-      width: min(760px, 100%);
-      padding: 34px 24px 28px;
-      border-radius: 30px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
-      border: 1px solid var(--card-border);
-      box-shadow: 0 25px 80px var(--shadow);
-      backdrop-filter: blur(10px);
       text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.06), transparent);
-      transform: translateX(-60%);
-      animation: sheen 7s linear infinite;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 8px 18px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.18);
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--cream);
-      margin-bottom: 18px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .heart-icon {
-      font-size: clamp(3rem, 8vw, 6rem);
-      line-height: 1;
-      margin: 0 0 8px;
-      color: #ff94c0;
-      text-shadow: 0 0 25px rgba(255,255,255,0.75);
-      animation: pulse 1.8s ease-in-out infinite;
-      position: relative;
-      z-index: 1;
+      padding: 42px 28px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(8px);
+      max-width: 700px;
+      width: calc(100% - 32px);
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(2.3rem, 6vw, 5rem);
-      line-height: 1.08;
-      position: relative;
-      z-index: 1;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      margin: 0 0 12px;
       letter-spacing: 1px;
     }
 
-    h2 {
-      margin: 8px 0 12px;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      color: var(--gold);
-      position: relative;
-      z-index: 1;
-    }
-
-    .message {
-      margin: 0 auto;
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      line-height: 1.7;
-      color: var(--muted);
-      max-width: 640px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .actions {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    button {
-      appearance: none;
-      border: none;
-      cursor: pointer;
-      border-radius: 999px;
-      padding: 14px 24px;
-      font-weight: 700;
-      font-size: 0.98rem;
-      letter-spacing: 0.5px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-    }
-
-    button:hover {
-      transform: translateY(-2px) scale(1.01);
-    }
-
-    .primary {
-      background: linear-gradient(135deg, #ff7eb6, #ff4d9d);
-      color: white;
-      box-shadow: 0 18px 28px rgba(255, 93, 162, 0.35);
-    }
-
-    .secondary {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.18);
-      color: var(--text);
-    }
-
-    .letter {
-      width: min(760px, 100%);
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 24px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.20);
-      padding: 24px 22px 20px;
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      transform: translateY(18px);
-      transition: all 0.45s ease;
-    }
-
-    .letter.active {
-      opacity: 1;
-      max-height: 900px;
-      transform: translateY(0);
-      padding: 24px 22px 20px;
-    }
-
-    .letter h3 {
-      margin: 0 0 12px;
-      color: var(--cream);
-      font-size: 1.4rem;
-      text-align: center;
-    }
-
-    .letter p {
-      margin: 0 0 10px;
-      color: var(--muted);
-      line-height: 1.8;
-      text-align: center;
-    }
-
-    .footer-tag {
-      text-align: center;
-      color: var(--cream);
-      font-size: 0.9rem;
-      letter-spacing: 0.5px;
-      opacity: 0.9;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.12); }
-    }
-
-    @keyframes float {
-      from { transform: translateY(0px) translateX(0px); }
-      to { transform: translateY(-22px) translateX(16px); }
-    }
-
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.3; transform: scale(0.8); }
-      50% { opacity: 1; transform: scale(1.25); }
-    }
-
-    @keyframes rise {
-      0% {
-        transform: translateY(110vh) scale(0.7);
-        opacity: 0;
-      }
-      12% { opacity: 0.9; }
-      100% {
-        transform: translateY(-10vh) scale(1.2);
-        opacity: 0;
-      }
-    }
-
-    @keyframes sheen {
-      0% { transform: translateX(-80%); }
-      100% { transform: translateX(150%); }
-    }
-
-    @media (max-width: 640px) {
-      .card {
-        padding: 28px 18px 22px;
-      }
-
-      .actions {
-        flex-direction: column;
-      }
-
-      button {
-        width: 100%;
-      }
+    p {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      margin: 0;
+      opacity: 0.92;
     }
   </style>
 </head>
 <body>
-  <div class="bg-orb one"></div>
-  <div class="bg-orb two"></div>
-  <div class="bg-orb three"></div>
+  <div class="card">
+    <h1>Happy Birthday, Cantikk!</h1>
+    <p>Semoga hari ini penuh kebahagiaan, senyum, dan momen indah yang selalu kamu ingat.</p>
+  </div>
 
-  <div class="sparkles" id="sparkles"></div>
-  <div class="hearts" id="hearts"></div>
-
-  <main class="page">
-    <section class="card">
-      <div class="badge">For You</div>
-      <div class="heart-icon">❤</div>
-      <h1>Happy Birthday</h1>
-      <h2>Cantikk!</h2>
-      <p class="message">
-        Semoga hari ini jadi hari yang paling indah, penuh senyum, bahagia, dan momen-momen yang bikin hati terasa hangat setiap kali diingat.
-      </p>
-
-      <div class="actions">
-        <button class="primary" id="musicBtn">▶ Play Music</button>
-        <button class="secondary" id="giftBtn">✨ Buka Surat</button>
-      </div>
-    </section>
-
-    <section class="letter" id="letter">
-      <h3>Untuk Cantikk</h3>
-      <p>Terima kasih sudah menjadi cahaya yang menenangkan hati. Kamu luar biasa, kuat, berharga, dan pantas mendapat semua kebahagiaan di dunia.</p>
-      <p>Semoga usia baru ini membawa kesehatan, kebahagiaan, dan banyak alasan untuk terus tersenyum. Semoga semua impianmu semakin dekat, dan semoga setiap langkahmu selalu diberi kelancaran dan keberkahan.</p>
-      <p>Happy birthday, semoga kamu selalu jadi versi terbaik dari dirimu sendiri. I hope your life keeps getting brighter, softer, and more beautiful every day.</p>
-    </section>
-
-    <div class="footer-tag">Made with love ♥</div>
-  </main>
-
-  <audio id="bgm" loop preload="auto">
-    <source src="lagu_browser.mp3" type="audio/mpeg" />
+  <audio id="bgm" autoplay loop playsinline>
+    <source src="lagu_browser.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    const musicBtn = document.getElementById('musicBtn');
-    const giftBtn = document.getElementById('giftBtn');
-    const letter = document.getElementById('letter');
     const audio = document.getElementById('bgm');
 
-    let isPlaying = false;
-
-    function toggleMusic() {
+    function tryPlay() {
       if (!audio) return;
-
-      if (!isPlaying) {
-        audio.volume = 0.45;
-        audio.play().then(() => {
-          isPlaying = true;
-          musicBtn.textContent = '❚❚ Pause Music';
-        }).catch(() => {
-          musicBtn.textContent = '▶ Play Music';
-        });
-      } else {
-        audio.pause();
-        isPlaying = false;
-        musicBtn.textContent = '▶ Play Music';
-      }
+      audio.volume = 0.5;
+      audio.play().catch(() => {
+        document.addEventListener('click', () => audio.play().catch(() => {}), { once: true });
+      });
     }
 
-    musicBtn.addEventListener('click', toggleMusic);
-
-    giftBtn.addEventListener('click', () => {
-      letter.classList.toggle('active');
-      giftBtn.textContent = letter.classList.contains('active') ? '✨ Tutup Surat' : '✨ Buka Surat';
-    });
-
-    function createSparkles() {
-      const sparkles = document.getElementById('sparkles');
-      for (let i = 0; i < 40; i++) {
-        const dot = document.createElement('span');
-        dot.className = 'sparkle';
-        dot.style.left = Math.random() * 100 + '%';
-        dot.style.top = Math.random() * 100 + '%';
-        dot.style.animationDelay = (Math.random() * 3) + 's';
-        dot.style.opacity = Math.random() * 0.8 + 0.2;
-        sparkles.appendChild(dot);
-      }
-    }
-
-    function createHearts() {
-      const hearts = document.getElementById('hearts');
-      for (let i = 0; i < 18; i++) {
-        const heart = document.createElement('span');
-        heart.className = 'heart-dot';
-        heart.textContent = i % 2 === 0 ? '❤' : '♡';
-        heart.style.left = Math.random() * 100 + '%';
-        heart.style.animationDelay = (Math.random() * 8) + 's';
-        heart.style.animationDuration = (Math.random() * 6 + 6) + 's';
-        heart.style.fontSize = (Math.random() * 12 + 16) + 'px';
-        hearts.appendChild(heart);
-      }
-    }
-
-    createSparkles();
-    createHearts();
+    window.addEventListener('load', tryPlay);
+    document.addEventListener('pointerdown', tryPlay, { once: true });
   </script>
 </body>
 </html>
